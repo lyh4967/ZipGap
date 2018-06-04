@@ -84,7 +84,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
@@ -147,7 +147,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="House.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Simulator.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Structure.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
