@@ -33,6 +33,12 @@
     <ClInclude Include="House.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Infra.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="subFunc.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -41,5 +47,11 @@
     <ClCompile Include="ZipGap.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="subFunc.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="command.txt" />
   </ItemGroup>
 </Project>

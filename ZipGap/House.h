@@ -7,6 +7,7 @@ public:
 	House();
 	House(Point _point, string _name, int _price);
 	~House();
+	string GetName() const;
 	void Print() const;
 };
 
@@ -21,4 +22,8 @@ House::~House() {}
 
 void House::Print() const {
 	cout << name << point << ":" << price << endl;
+}
+
+string House::GetName()const{
+	return name;
 }

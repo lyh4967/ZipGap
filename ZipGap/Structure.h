@@ -9,5 +9,6 @@ protected:
 public:
 	Structure() {}
 	virtual void Print() const = 0;
+	Point GetPoint() { return point; }
 	
 };
