@@ -169,6 +169,10 @@
   <ItemGroup>
     <Text Include="command.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="saveData_house.dat" />
+    <None Include="saveData_infra.dat" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

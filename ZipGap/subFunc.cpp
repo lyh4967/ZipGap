@@ -4,6 +4,7 @@
 @strTok : 분기줄 데이터
 @string : 반환형 , 배열로 인자전달
 */
+#pragma once
 #include "subFunc.h"
 string* StringSplit(string strTarget, string strTok)
 {

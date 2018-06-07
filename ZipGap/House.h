@@ -1,5 +1,6 @@
 #pragma once
 #include "Structure.h"
+#include "stdafx.h"
 class House :public Structure {
 private:
 	int price;
@@ -7,8 +8,9 @@ public:
 	House();
 	House(Point _point, string _name, int _price);
 	~House();
-	string GetName() const;
 	void Print() const;
+	int GetPrice() const;
+	void SetPrice(int price_);
 };
 
 House::House() {}
@@ -24,6 +26,10 @@ void House::Print() const {
 	cout << name << point << ":" << price << endl;
 }
 
-string House::GetName()const{
-	return name;
+int House::GetPrice() const {
+	return price;
+}
+
+void House::SetPrice(int price_) {
+	price = price_;
 }

@@ -54,4 +54,8 @@
   <ItemGroup>
     <Text Include="command.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="saveData_house.dat" />
+    <None Include="saveData_infra.dat" />
+  </ItemGroup>
 </Project>

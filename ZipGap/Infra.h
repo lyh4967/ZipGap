@@ -2,22 +2,31 @@
 #include "Structure.h"
 class Infra:public Structure {
 private:
-	int weight;
+	int weighted;
 public:
 	Infra();
 	Infra(Point _point, string _name, int _weight);
 	~Infra();
 	void Print() const;
+	int GetWeighted() const;
+	void SetWeighted(int weighted_);
 };
 Infra::Infra() {}
 
-Infra::Infra(Point _point, string _name, int _weight) {
+Infra::Infra(Point _point, string _name, int _weighted) {
 	point = _point;
 	name = _name;
-	weight = _weight;
+	weighted = _weighted;
 }
 Infra::~Infra() {}
 
 void Infra::Print() const {
-	cout << name << point << ":" << weight << endl;
+	cout << name << point << ":" << weighted << endl;
+}
+
+int Infra::GetWeighted() const {
+	return weighted;
+}
+void Infra::SetWeighted(int weighted_) {
+	weighted = weighted_;
 }

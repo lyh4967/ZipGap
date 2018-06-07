@@ -1,5 +1,4 @@
 #pragma once
-#include "stdafx.h"
 #include "Point.h"
 using namespace std;
 class Structure {
@@ -10,5 +9,6 @@ public:
 	Structure() {}
 	virtual void Print() const = 0;
 	Point GetPoint() { return point; }
+	string GetName() const { return name; }
 	
 };

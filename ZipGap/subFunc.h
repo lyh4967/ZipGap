@@ -1,4 +1,4 @@
 #pragma once
-#include <string>
+#include "stdafx.h"
 using namespace std;
 string* StringSplit(string strTarget, string strTok);
