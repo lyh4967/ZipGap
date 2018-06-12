@@ -13,8 +13,8 @@ private:
 	ofstream output;
 	ifstream input;
 	
-	void checkPrice_house();
-	void checkPrice_target(Point p);
+	void checkPrice_house();//전체 집값을 체크한다.
+	void checkPrice_target(Point p);//하나의 집값을 체크한다.
 public:
 	Simulator();
 	~Simulator();
@@ -128,8 +128,8 @@ void Simulator::checkPrice_house() {
 		int price = house.GetPrice();
 		for (auto item_i : infraList) {
 			Infra infra = item_i.second;
-			int distX = pow(house.GetPoint().GetX() - infra.GetPoint().GetX(),2);
-			int distY = pow(house.GetPoint().GetY() - infra.GetPoint().GetY(),2);
+			int distX = (int)pow(house.GetPoint().GetX() - infra.GetPoint().GetX(),2);
+			int distY = (int)pow(house.GetPoint().GetY() - infra.GetPoint().GetY(),2);
 			int dist = (int)sqrt(distX + distY);//건물사이의 거리
 			price += infra.GetWeighted()/dist*10;//10의 가중을 더준다.
 			
@@ -157,8 +157,8 @@ void Simulator::checkPrice_target(Point p) {
 	int price = house.GetPrice();
 	for (auto item_i : infraList) {
 		Infra infra = item_i.second;
-		int distX = pow(house.GetPoint().GetX() - infra.GetPoint().GetX(), 2);
-		int distY = pow(house.GetPoint().GetY() - infra.GetPoint().GetY(), 2);
+		int distX = (int)pow(house.GetPoint().GetX() - infra.GetPoint().GetX(), 2);
+		int distY = (int)pow(house.GetPoint().GetY() - infra.GetPoint().GetY(), 2);
 		int dist = (int)sqrt(distX + distY);//건물사이의 거리
 		price += infra.GetWeighted() / dist * 10;//10의 가중을 더준다.
 	}
