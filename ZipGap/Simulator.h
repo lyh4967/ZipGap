@@ -6,7 +6,7 @@ using namespace std;
 
 class Simulator {
 private:
-	string** realtyMap;
+	Structure** realtyMap;
 	map<Point, House> houseList;
 	map<Point, Infra> infraList;//포인트로하자
 	int maxSize;
@@ -33,10 +33,9 @@ Simulator::Simulator()
 {
 	int _maxSize = 16;
 	maxSize = _maxSize;
-	realtyMap = new string*[maxSize];
+	realtyMap = new Structure*[maxSize];
 	for (int i = 0; i < maxSize; i++) {
-		realtyMap[i] = new string[maxSize];
-		fill(realtyMap[i], realtyMap[i] + maxSize, "");
+		realtyMap[i] = new Structure[maxSize];
 	}
 }
 Simulator::~Simulator() {
@@ -50,7 +49,11 @@ void Simulator::Print() const
 	cout << "========================================" << endl;
 	for (int i = 0; i < maxSize; i++) {
 		for (int j = 0; j < maxSize; j++) {
-			cout << realtyMap[i][j] << setw(4);
+			if (realtyMap[i][j].GetName() == "")//객체가 있다면
+				cout << "";
+			else
+				cout << realtyMap[i][j];
+			cout << setw(4);
 		}
 		cout << endl;
 	}
@@ -70,7 +73,7 @@ void Simulator::InsertHouse(House& house) {
 	houseList.insert(make_pair(point, house));
 	int x = point.GetX();
 	int y = point.GetY();
-	realtyMap[y][x] = house.GetName()+"("+to_string(x)+","+to_string(y)+")";
+	realtyMap[y][x] = house;
 	checkPrice_target(point);
 }
 
@@ -80,7 +83,7 @@ void Simulator::InsertInfra(Infra& infra) {
 	int x = point.GetX();
 	int y = point.GetY();
 
-	realtyMap[y][x] = infra.GetName() + "(" + to_string(x) + "," + to_string(y) + ")";
+	realtyMap[y][x] = infra;
 	checkPrice_house();
 }
 
