@@ -1,6 +1,7 @@
 #pragma once
 #include "Point.h"
 #include <iostream>
+#include <windows.h>
 using namespace std;
 
 using namespace std;
@@ -9,9 +10,6 @@ protected:
 	string name;
 	Point point;
 public:
-	Structure() {
-		name = "";
-	}
 	virtual void Print() {};
 	Point GetPoint() const { return point; }
 	string GetName() const { return name; }

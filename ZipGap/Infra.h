@@ -33,5 +33,7 @@ void Infra::SetWeighted(int weighted_) {
 }
 
 void Infra::PrintMap() const {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
 	cout << name << point;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 }
