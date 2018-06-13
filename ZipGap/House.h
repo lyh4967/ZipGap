@@ -9,6 +9,7 @@ public:
 	House(Point _point, string _name, int _price);
 	~House();
 	void Print() const;
+	virtual void PrintMap() const;
 	int GetPrice() const;
 	void SetPrice(int price_);
 };
@@ -32,4 +33,8 @@ int House::GetPrice() const {
 
 void House::SetPrice(int price_) {
 	price = price_;
+}
+
+void House::PrintMap() const {
+	cout<< name << point;
 }

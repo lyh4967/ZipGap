@@ -8,6 +8,7 @@ public:
 	Infra(Point _point, string _name, int _weight);
 	~Infra();
 	void Print() const;
+	virtual void PrintMap() const;
 	int GetWeighted() const;
 	void SetWeighted(int weighted_);
 };
@@ -29,4 +30,8 @@ int Infra::GetWeighted() const {
 }
 void Infra::SetWeighted(int weighted_) {
 	weighted = weighted_;
+}
+
+void Infra::PrintMap() const {
+	cout << name << point;
 }

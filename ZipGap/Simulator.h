@@ -6,7 +6,7 @@ using namespace std;
 
 class Simulator {
 private:
-	Structure** realtyMap;
+	Structure*** realtyMap;
 	map<Point, House> houseList;
 	map<Point, Infra> infraList;//포인트로하자
 	int maxSize;
@@ -33,9 +33,9 @@ Simulator::Simulator()
 {
 	int _maxSize = 16;
 	maxSize = _maxSize;
-	realtyMap = new Structure*[maxSize];
+	realtyMap = new Structure**[maxSize];
 	for (int i = 0; i < maxSize; i++) {
-		realtyMap[i] = new Structure[maxSize];
+		realtyMap[i] = new Structure*[maxSize];
 	}
 }
 Simulator::~Simulator() {
@@ -49,10 +49,10 @@ void Simulator::Print() const
 	cout << "========================================" << endl;
 	for (int i = 0; i < maxSize; i++) {
 		for (int j = 0; j < maxSize; j++) {
-			if (realtyMap[i][j].GetName() == "")//객체가 있다면
+			if (realtyMap[i][j]->GetName() == "")//객체가 있다면
 				cout << "";
 			else
-				cout << realtyMap[i][j];
+				realtyMap[i][j]->PrintMap();
 			cout << setw(4);
 		}
 		cout << endl;
