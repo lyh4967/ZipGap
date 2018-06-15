@@ -52,7 +52,9 @@ Simulator::~Simulator() {
 void Simulator::Print() const
 //지도의 모든 요소를 출력한다.
 {
-	cout << "========================================" << endl;
+	for (int i = 0; i < maxSize * 4; i++)
+		cout << "=";
+	cout << maxSize << endl;
 	for (int i = 0; i < maxSize; i++) {
 		for (int j = 0; j < maxSize; j++) {
 			if (realtyMap[i][j]==NULL)//객체가 있다면
@@ -63,7 +65,9 @@ void Simulator::Print() const
 		}
 		cout << endl;
 	}
-	cout << "=========================================" << endl;
+	for (int i = 0; i < maxSize * 4; i++)
+		cout << "=";
+	cout << endl;
 	cout << "================House LIst===============" << endl;
 	for (auto item : houseList)
 		item.second->Print();
@@ -166,19 +170,6 @@ void Simulator::checkPrice_house() {
 		item_h.second->SetPrice(priceOrigin+priceChange);
 		item_h.second->SetPriceChange(priceChange);
 	}
-	//for (map<string, House>::iterator item_h = houseList.begin(); item_h != houseList.end(); item_h++) {
-	//	House house = (*item_h).second;
-	//	int price = house.GetPrice();
-	//	for (map<string, Infra>::iterator item_i = infraList.begin(); item_i != infraList.end(); item_i++) {
-	//		Infra infra = (*item_i).second;
-	//		int distX = pow(house.GetPoint().GetX() - infra.GetPoint().GetX(), 2);
-	//		int distY = pow(house.GetPoint().GetY() - infra.GetPoint().GetY(), 2);
-	//		int dist = (int)sqrt(distX + distY);//건물사이의 거리
-	//		price += dist * infra.GetWeighted();
-
-	//	}
-	//	(*item_h).second.SetPrice(price);
-	//}
 }
 
 void Simulator::checkPrice_target(Point p) {
