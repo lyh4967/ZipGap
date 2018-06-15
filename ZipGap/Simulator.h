@@ -16,15 +16,16 @@ private:
 	void checkPrice_house();//전체 집값을 체크한다.
 	void checkPrice_target(Point p);//하나의 집값을 체크한다.
 public:
-	Simulator();
+	Simulator();//create map
 	~Simulator();
-	void Print() const;
-	void InsertHouse(House* house);
-	void InsertInfra(Infra* infra);
-	void DeleteStructure(Point point);
-	void Save(string outputPath_);
-	void Load(string inputPath_);
-	bool checkPromising(Point p);
+	void Print() const;//print Structure list
+	void InsertHouse(House* house);//inset house
+	void InsertInfra(Infra* infra);//insert infra
+	void DeleteStructure(Point point);//deletee structure(house or infra)
+	void Save(string outputPath_);//save current data
+	void Load(string inputPath_);//load previous data
+	bool checkEmpty(Point p);//check whether insert possible
+	void LinkStructure(Point p1, Point p2);//link structure between structure
 
 };
 
@@ -83,7 +84,7 @@ void Simulator::InsertHouse(House* house) {//집 추가
 	houseList.insert(make_pair(point, house));
 	int x = point.GetX();
 	int y = point.GetY();
-	realtyMap[y][x] = house;
+	realtyMap[x][y] = house;
 	checkPrice_target(point);
 }
 
@@ -93,7 +94,7 @@ void Simulator::InsertInfra(Infra* infra) {//기반시설 추가
 	int x = point.GetX();
 	int y = point.GetY();
 
-	realtyMap[y][x] = infra;
+	realtyMap[x][y] = infra;
 	checkPrice_house();
 }
 void Simulator::DeleteStructure(Point point) {//건물 삭제
@@ -103,7 +104,7 @@ void Simulator::DeleteStructure(Point point) {//건물 삭제
 	int x = point.GetX();
 	int y = point.GetY();
 	
-	realtyMap[y][x] = NULL;
+	realtyMap[x][y] = NULL;
 	iter1=infraList.find(point);
 	if (iter1 != infraList.end()) {
 		infraList.erase(point);
@@ -186,11 +187,19 @@ void Simulator::checkPrice_target(Point p) {
 	(*iter).second->SetPrice(price);
 }
 
-bool Simulator::checkPromising(Point p) {
+bool Simulator::checkEmpty(Point p) {
 	bool promising = true;
-	if (houseList.find(p) != houseList.end())
+	/*if (houseList.find(p) != houseList.end())
 		promising = false;
 	if (infraList.find(p) != infraList.end())
+		promising = false;*/
+	if (realtyMap[p.GetX()][p.GetY()] != NULL)
 		promising = false;
 	return promising;
+}
+
+void Simulator::LinkStructure(Point p1, Point p2) {
+	realtyMap[p1.GetX()][p1.GetY()]->Link(realtyMap[p2.GetX()][p2.GetY()]);
+	realtyMap[p2.GetX()][p2.GetY()]->Link(realtyMap[p1.GetX()][p1.GetY()]);
+
 }
