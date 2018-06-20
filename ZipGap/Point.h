@@ -7,6 +7,10 @@ private:
 public:
 	Point() {}
 	Point(int _x, int _y) :x(_x), y(_y) {}
+	Point(const Point& another) {
+		x = another.x;
+		y = another.y;
+	}
 	
 	/*bool operator()(const Point& origin, const Point& another) const {
 		cout << "Ddwdqw";
@@ -21,10 +25,26 @@ public:
 			return y < another.y;
 		return x < another.x;
 	}
-/*
+	bool operator<=(const Point& another) const {
+		if (x == another.x)
+			return y <= another.y;
+		return x <= another.x;
+	}
+
+	bool operator>(const Point& another) const {
+		if (x == another.x)
+			return y > another.y;
+		return x > another.x;
+	}
+	bool operator>=(const Point& another) const {
+		if (x == another.x)
+			return y >= another.y;
+		return x >= another.x;
+	}
+
 	bool operator == (const Point& another) const {
 		return x == another.x && y == another.y;
-	}*/
+	}
 
 	friend ostream& operator<<(ostream& os, const Point& point);
 	

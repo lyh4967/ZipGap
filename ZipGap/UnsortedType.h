@@ -12,6 +12,7 @@ class UnsortedType
 public:
   UnsortedType();     // Class constructor	
   ~UnsortedType();    // Class destructor
+  UnsortedType(const UnsortedType<ItemType>& another);
 
   bool IsFull() const;
   // Determines whether list is full.
@@ -84,6 +85,22 @@ UnsortedType<ItemType>::~UnsortedType()
 // Class destructor
 {
 	MakeEmpty();
+}
+
+template <class ItemType>
+UnsortedType<ItemType>::UnsortedType(const UnsortedType<ItemType>& another) {//복사생성자 고역이다 지짜
+	NodeType<ItemType>* location;
+	NodeType<ItemType>* anoLocation=another.listData;
+	int tmpLen = another.LengthIs();
+	for (int i = 0; i < tmpLen; i++) {
+		location = new NodeType<ItemType>;
+		location->info = anoLocation->info;
+		location->next = listData;
+		listData = location;
+		length++;
+		anoLocation = anoLocation->next;
+	}
+	
 }
 template<class ItemType>
 bool UnsortedType<ItemType>::IsFull() const

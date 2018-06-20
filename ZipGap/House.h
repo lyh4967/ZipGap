@@ -32,7 +32,7 @@ House::House(Point _point, string _name, int _price) {
 House::~House() {}
 
 void House::Print() const {
-	cout << name << point << ":" << price << endl;
+	cout << name << point << ":" << price;
 }
 
 int House::GetPrice() const {

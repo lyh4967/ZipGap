@@ -150,11 +150,13 @@
     <ClInclude Include="House.h" />
     <ClInclude Include="Infra.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="QueType.h" />
     <ClInclude Include="Simulator.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Structure.h" />
     <ClInclude Include="subFunc.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TreeType.h" />
     <ClInclude Include="UnsortedType.h" />
   </ItemGroup>
   <ItemGroup>

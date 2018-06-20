@@ -1,21 +1,22 @@
 #include<iostream>
 #include <string>
+#include "TreeType.h"
+#include "Point.h"
 using namespace std;
-string s = "DDWDWWW";
-class Parent {
-public:
-	virtual void print() { cout << s; }
-};
-class Child :public Parent {
-public:
-	virtual void print() { cout << s; }
-};
+
 int main() {
-	Parent** arr = new Parent*[10];
-	for (int i = 0; i < 10; i++) {
-		arr[i]=new Parent[10];
+
+	Point p(2, 3);
+	TreeType<Point> tree;
+	tree.InsertItem(p);
+	bool found = false;
+	tree.ResetTree(PRE_ORDER);
+	bool finished = false;
+	while (!finished) {
+		Point tmp;
+		tree.GetNextItem(tmp,PRE_ORDER, finished);
+		cout << tmp;
 	}
-	Child ch;
-	arr[0][0] = ch;
-	arr[0][0].print();
+
+	return 0;
 }
