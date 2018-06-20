@@ -161,6 +161,7 @@ void Simulator::checkPrice_house() {
 		House* house = item_h.second;
 		int priceOrigin = house->GetPriceOrigin();
 		int priceChange = 0;
+		
 		for (auto item_i : infraList) {//건물 하나당 모든 기반시설 반복
 			Infra* infra = item_i.second;
 			int distX = (int)pow(house->GetPoint().GetX() - infra->GetPoint().GetX(),2);
@@ -198,7 +199,7 @@ bool Simulator::checkEmpty(Point p) {
 	return promising;
 }
 
-void Simulator::LinkStructure(Point p1, Point p2) {
+void Simulator::LinkStructure(Point p1, Point p2) {//건물을 연결시킨다(도로);
 	realtyMap[p1.GetX()][p1.GetY()]->Link(realtyMap[p2.GetX()][p2.GetY()]);
 	realtyMap[p2.GetX()][p2.GetY()]->Link(realtyMap[p1.GetX()][p1.GetY()]);
 
