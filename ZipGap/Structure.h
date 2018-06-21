@@ -15,18 +15,11 @@ protected:
 	
 public:
 	virtual void Print() const = 0 ;
-	Point GetPoint() const { return point; }
-	string GetName() const { return name; }
-	void Link(Point item) {
-		linkedStructure.InsertItem(item);
-	}
-	UnsortedType<Point> GetLinkList() const {
-		return linkedStructure;
-	}
+	Point GetPoint() const;
+	string GetName() const;
+	void Link(Point item);
+	UnsortedType<Point> GetLinkList() const;
 	virtual void PrintMap() const = 0;
-	//friend ostream& operator<<(ostream& os, const Structure& structure) {//지도에출력
-	//	os << structure.name << structure.point;
-	//	return os;
-	//}
-	
+	//friend ostream& operator<<(ostream& os, const Structure& structure);//지도에출력
+
 };

@@ -160,12 +160,17 @@
     <ClInclude Include="UnsortedType.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="House.cpp" />
+    <ClCompile Include="Infra.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Simulator.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Structure.cpp" />
     <ClCompile Include="subFunc.cpp" />
     <ClCompile Include="test.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
